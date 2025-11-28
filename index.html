@@ -3,299 +3,836 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio profesional de [Tu Nombre] - Desarrollador Frontend y Diseñador UI">
-    <meta name="keywords" content="portafolio, desarrollador frontend, diseñador UI, proyectos web">
-    <meta name="author" content="[Tu Nomre]">
-    <title>[Tu Nombre] | Desarrollador Frontend</title>
+    <meta name="description" content="Sistema de Gestión de Proyectos de Jhonatan Steven Cabrera M. - Desarrollador Full Stack">
+    <meta name="keywords" content="gestión de proyectos, portafolio profesional, desarrollador full stack, Jhonatan Steven Cabrera, documentación técnica, casos de estudio">
+    <meta name="author" content="Jhonatan Steven Cabrera Montoya">
+    <title>Portafolio Profesional | Jhonatan Steven Cabrera M.</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
     
-    <!-- Preload de fuentes -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
     
-    <!-- Preconexión a servicios externos -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style">
+    
+    <style>
+        /* Estilos personalizados para el sistema de gestión */
+        :root {
+            --primary: #1F3C88;
+            --secondary: #2B2B2B;
+            --accent: #3ECF8E;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --success: #28A745;
+            --warning: #FFC107;
+            --danger: #DC3545;
+            --info: #17A2B8;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .project-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+        }
+        
+        .progress {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .tech-badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            margin: 0.15rem;
+        }
+        
+        .documentation-section {
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid var(--primary);
+        }
+        
+        .stat-card {
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #6C757D;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-light">
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-sm" aria-label="Navegación principal">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#inicio">
-                <span class="text-verde">[</span>Tu Nombre<span class="text-verde">]</span>
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+                <span class="bg-white text-primary rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 36px; height: 36px;">JS</span>
+                <span class="d-none d-sm-inline">Jhonatan S. Cabrera M.</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#inicio" aria-current="page">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sobre-mi.html">Sobre mí</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="proyectos.html">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i> Inicio</a>
                     </li>
                 </ul>
+                <div class="d-flex">
+                    <div class="input-group input-group-sm me-2" style="max-width: 200px;">
+                        <input type="text" class="form-control form-control-sm" placeholder="Buscar proyectos..." id="search-projects">
+                        <button class="btn btn-outline-light" type="button"><i class="bi bi-search"></i></button>
+                    </div>
+                    <a href="#" class="btn btn-outline-light btn-sm d-flex align-items-center">
+                        <i class="bi bi-download me-1"></i> CV
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header id="inicio" class="hero d-flex align-items-center min-vh-100 py-5">
-        <div class="container text-center py-5">
-            <div class="hero-content">
-                <div class="hero-img-container mb-4">
-                    <img src="img/foto.jpg" alt="[Tu Nombre] - Desarrollador Frontend" class="hero-img">
+    <header class="py-5 mt-5 bg-white border-bottom">
+        <div class="container py-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Portafolio de Proyectos</li>
+                </ol>
+            </nav>
+            
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold mb-3">Portafolio Profesional</h1>
+                    <p class="lead text-muted mb-4">Explora mi colección de proyectos profesionales y personales que demuestran mis habilidades en desarrollo web, diseño de interfaces y soluciones tecnológicas innovadoras.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="#filters" class="btn btn-primary px-4">
+                            <i class="bi bi-funnel me-2"></i>Filtrar Proyectos
+                        </a>
+                        <a href="#contact" class="btn btn-outline-secondary px-4">
+                            <i class="bi bi-chat-dots me-2"></i>Contáctame
+                        </a>
+                    </div>
                 </div>
-                <h1 class="display-4 fw-bold mb-3">Hola, soy <span class="text-primary">[Tu Nombre]</span></h1>
-                <p class="lead text-muted mb-4">Desarrollador Frontend | Especialista en Experiencia de Usuario</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="proyectos.html" class="btn btn-primary btn-lg px-4">
-                        Ver proyectos <i class="bi bi-arrow-right ms-2"></i>
-                    </a>
-                    <a href="#contacto" class="btn btn-outline-primary btn-lg px-4">
-                        Contactar <i class="bi bi-send ms-2"></i>
-                    </a>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="https://via.placeholder.com/600x400/1F3C88/FFFFFF?text=JSCM+Portfolio" alt="Portafolio Profesional" class="img-fluid rounded-3 shadow">
                 </div>
             </div>
         </div>
-        <a href="#servicios" class="scroll-down" aria-label="Desplazarse a la siguiente sección">
-            <i class="bi bi-chevron-down"></i>
-        </a>
     </header>
 
-    <!-- Sección de Servicios -->
-    <section id="servicios" class="py-5 bg-light">
-        <div class="container py-5">
-            <div class="section-header text-center mb-5">
-                <h2 class="display-5 fw-bold">Mis Servicios</h2>
-                <div class="divider bg-primary"></div>
-                <p class="lead text-muted">Soluciones digitales a medida para tu negocio</p>
-            </div>
-            
+    <!-- Estadísticas -->
+    <section class="py-4 bg-light">
+        <div class="container">
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-effect">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
-                                <i class="bi bi-code-slash"></i>
-                            </div>
-                            <h3 class="h5 fw-bold mb-3">Desarrollo Web</h3>
-                            <p class="text-muted">Sitios web modernos, rápidos y optimizados para todos los dispositivos.</p>
-                        </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-projects">24</div>
+                        <div class="stat-label">Proyectos Completados</div>
                     </div>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-effect">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
-                                <i class="bi bi-phone"></i>
-                            </div>
-                            <h3 class="h5 fw-bold mb-3">Diseño Responsivo</h3>
-                            <p class="text-muted">Diseños que se adaptan perfectamente a cualquier pantalla.</p>
-                        </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
                     </div>
                 </div>
-                
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-effect">
-                        <div class="card-body text-center p-4">
-                            <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
-                                <i class="bi bi-graph-up"></i>
-                            </div>
-                            <h3 class="h5 fw-bold mb-3">Optimización SEO</h3>
-                            <p class="text-muted">Mejora el posicionamiento de tu sitio en los motores de búsqueda.</p>
-                        </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Tecnologías Dominadas</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Años de Experiencia</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Proyectos Destacados -->
-    <section class="py-5">
-        <div class="container py-5">
-            <div class="section-header text-center mb-5">
-                <h2 class="display-5 fw-bold">Proyectos Destacados</h2>
-                <div class="divider bg-primary"></div>
-                <p class="lead text-muted">Algunos de mis trabajos recientes</p>
+    <!-- Filtros Avanzados -->
+    <section id="filters" class="py-4 bg-white border-bottom">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-12">
+                    <h2 class="h5 fw-bold mb-3">Filtrar Proyectos</h2>
+                </div>
+                <!-- Búsqueda -->
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" id="project-search" placeholder="Buscar proyectos...">
+                    </div>
+                </div>
+                <!-- Filtro por categoría -->
+                <div class="col-md-3">
+                    <select class="form-select" id="category-filter">
+                        <option value="all">Todas las categorías</option>
+                        <option value="web">Desarrollo Web</option>
+                        <option value="app">Aplicaciones Móviles</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="uiux">Diseño UI/UX</option>
+                        <option value="api">APIs y Backend</option>
+                    </select>
+                </div>
+                <!-- Filtro por tecnologías -->
+                <div class="col-md-3">
+                    <select class="form-select" id="tech-filter">
+                        <option value="all">Todas las tecnologías</option>
+                        <option value="react">React</option>
+                        <option value="vue">Vue.js</option>
+                        <option value="node">Node.js</option>
+                        <option value="python">Python</option>
+                        <option value="php">PHP</option>
+                    </select>
+                </div>
+                <!-- Ordenar por -->
+                <div class="col-md-2">
+                    <select class="form-select" id="sort-by">
+                        <option value="recent">Más recientes</option>
+                        <option value="oldest">Más antiguos</option>
+                        <option value="name">Nombre (A-Z)</option>
+                    </select>
+                </div>
             </div>
-            
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
+            <!-- Filtros rápidos -->
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-sm btn-outline-primary active" data-filter="all">
+                            <i class="bi bi-grid me-1"></i> Todos
+                        </button>
+                        <button class="btn btn-sm btn-outline-primary" data-filter="featured">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Destacados
+                        </button>
+                        <button class="btn btn-sm btn-outline-primary" data-filter="web">
+                            <i class="bi bi-globe2 me-1"></i> Web
+                        </button>
+                        <button class="btn btn-sm btn-outline-primary" data-filter="app">
+                            <i class="bi bi-phone me-1"></i> Apps
+                        </button>
+                        <button class="btn btn-sm btn-outline-primary" data-filter="ecommerce">
+                            <i class="bi bi-cart3 me-1"></i> E-commerce
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h2 class="h4 fw-bold mb-0">Mis Proyectos</h2>
+                    <p class="text-muted mb-0">Explora mi trabajo más reciente y destacado</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-secondary active" id="grid-view">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" id="list-view">
+                            <i class="bi bi-list-ul"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4" id="projects-container">
+                <!-- Proyecto 1 -->
+                <div class="col-md-6 col-lg-4 project-item" data-categories="web" data-tech="react node" data-date="2024-01-15" data-featured="true">
                     <div class="card h-100 border-0 shadow-sm overflow-hidden project-card">
-                        <div class="project-img-container">
-                            <img src="https://via.placeholder.com/600x400" class="card-img-top" alt="Proyecto 1">
-                            <div class="project-overlay">
-                                <a href="proyecto-detalle.html" class="btn btn-outline-light btn-sm">Ver Detalles</a>
+                        <div class="position-relative">
+                            <div class="project-status">
+                                <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> Completado</span>
+                            </div>
+                            <div class="project-img-container">
+                                <img src="https://via.placeholder.com/600x400/1F3C88/FFFFFF?text=Sitio+Web+Corporativo" class="card-img-top" alt="Sitio Web Corporativo">
+                                <div class="project-overlay">
+                                    <div class="btn-group" role="group">
+                                        <a href="proyecto-detalle.html" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" title="Ver detalles">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-light btn-sm" data-bs-toggle="tooltip" title="Código fuente">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-light btn-sm" data-bs-toggle="tooltip" title="Ver demo">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h3 class="h5 fw-bold">Sitio Web Corporativo</h3>
-                            <p class="text-muted">Diseño y desarrollo de un sitio web moderno para una empresa de tecnología.</p>
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge bg-light text-dark">HTML5</span>
-                                <span class="badge bg-light text-dark">CSS3</span>
-                                <span class="badge bg-light text-dark">JavaScript</span>
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="h5 fw-bold mb-0">Sitio Web Corporativo</h3>
+                                <div>
+                                    <span class="badge bg-soft-primary">Web</span>
+                                    <span class="badge bg-soft-warning ms-1">Destacado</span>
+                                </div>
+                            </div>
+                            <p class="text-muted small mb-3">Plataforma web corporativa con diseño responsivo, panel de administración y sistema de gestión de contenidos personalizado.</p>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between small text-muted mb-1">
+                                    <span>Progreso</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-code-slash me-1"></i> React</span>
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-braces me-1"></i> Node.js</span>
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-database me-1"></i> MongoDB</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-light text-muted border small"><i class="bi bi-calendar3 me-1"></i> Ene 2024</span>
+                                    <span class="badge bg-light text-muted border small ms-1"><i class="bi bi-clock me-1"></i> 3 meses</span>
+                                </div>
+                                <a href="proyecto-detalle.html" class="btn btn-sm btn-outline-primary">
+                                    Ver detalles <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Repetir para más proyectos -->
+
+                <!-- Proyecto 2 - Aplicación Móvil -->
+                <div class="col-md-6 col-lg-4 project-item" data-categories="app" data-tech="react-native firebase" data-date="2024-03-10" data-featured="true">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden project-card">
+                        <div class="position-relative">
+                            <div class="project-status">
+                                <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> Completado</span>
+                            </div>
+                            <div class="project-img-container">
+                                <img src="https://via.placeholder.com/600x400/2B2B2B/FFFFFF?text=App+de+Tareas" class="card-img-top" alt="Aplicación Móvil">
+                                <div class="project-overlay">
+                                    <div class="btn-group" role="group">
+                                        <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" title="Ver detalles">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-light btn-sm" data-bs-toggle="tooltip" title="Código fuente">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-light btn-sm" data-bs-toggle="tooltip" title="Ver en Google Play">
+                                            <i class="bi bi-google-play"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="h5 fw-bold mb-0">App de Tareas</h3>
+                                <div>
+                                    <span class="badge bg-soft-success">Móvil</span>
+                                    <span class="badge bg-soft-warning ms-1">Destacado</span>
+                                </div>
+                            </div>
+                            <p class="text-muted small mb-3">Aplicación móvil para gestión de tareas con sincronización en tiempo real, recordatorios y categorización inteligente.</p>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between small text-muted mb-1">
+                                    <span>Progreso</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-phone me-1"></i> React Native</span>
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-cloud me-1"></i> Firebase</span>
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-box-arrow-in-up me-1"></i> Redux</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-light text-muted border small"><i class="bi bi-calendar3 me-1"></i> Mar 2024</span>
+                                    <span class="badge bg-light text-muted border small ms-1"><i class="bi bi-clock me-1"></i> 2 meses</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">
+                                    Ver detalles <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 - E-commerce -->
+                <div class="col-md-6 col-lg-4 project-item" data-categories="ecommerce" data-tech="react node mongodb" data-date="2023-12-05">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden project-card">
+                        <div class="position-relative">
+                            <div class="project-status">
+                                <span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> En producción</span>
+                            </div>
+                            <div class="project-img-container">
+                                <img src="https://via.placeholder.com/600x400/3ECF8E/FFFFFF?text=E-commerce" class="card-img-top" alt="Tienda Online">
+                                <div class="project-overlay">
+                                    <div class="btn-group" role="group">
+                                        <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="tooltip" title="Ver tienda">
+                                            <i class="bi bi-cart3"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-light btn-sm" data-bs-toggle="tooltip" title="Código fuente">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-light btn-sm" data-bs-toggle="tooltip" title="Ver demo">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="h5 fw-bold mb-0">Tienda Online</h3>
+                                <div>
+                                    <span class="badge bg-soft-warning">E-commerce</span>
+                                </div>
+                            </div>
+                            <p class="text-muted small mb-3">Plataforma de comercio electrónico con carrito de compras, pasarela de pago y panel de administración.</p>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between small text-muted mb-1">
+                                    <span>Progreso</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-code-slash me-1"></i> React</span>
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-braces me-1"></i> Node.js</span>
+                                <span class="badge bg-light text-dark tech-badge"><i class="bi bi-credit-card me-1"></i> Stripe</span>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge bg-light text-muted border small"><i class="bi bi-calendar3 me-1"></i> Dic 2023</span>
+                                    <span class="badge bg-light text-muted border small ms-1"><i class="bi bi-currency-dollar me-1"></i> 5K+</span>
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">
+                                    Ver detalles <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón de carga más proyectos -->
                 <div class="col-12 text-center mt-4">
-                    <a href="proyectos.html" class="btn btn-outline-primary">Ver todos los proyectos</a>
+                    <button id="load-more" class="btn btn-outline-primary px-4">
+                        <span class="spinner-border spinner-border-sm d-none me-2" role="status" aria-hidden="true"></span>
+                        Cargar más proyectos
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Contacto -->
-    <section id="contacto" class="py-5 bg-light">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <div class="section-header mb-4">
-                        <h2 class="display-5 fw-bold">Trabajemos Juntos</h2>
-                        <div class="divider bg-primary"></div>
-                    </div>
-                    <p class="mb-4">¿Tienes un proyecto en mente? Estoy listo para ayudarte a hacerlo realidad. Contáctame y hablemos sobre cómo puedo contribuir al éxito de tu próximo proyecto.</p>
-                    
-                    <div class="contact-info">
+    <!-- Sección de Documentación -->
+    <section id="documentation" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h3 fw-bold mb-3">Documentación Técnica</h2>
+                    <p class="text-muted">Accede a guías detalladas, manuales de usuario y documentación técnica de los proyectos</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="documentation-section h-100">
                         <div class="d-flex align-items-center mb-3">
-                            <div class="icon-box bg-primary text-white me-3">
-                                <i class="bi bi-envelope"></i>
+                            <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                <i class="bi bi-file-earmark-text text-primary fs-4"></i>
                             </div>
-                            <div>
-                                <h6 class="mb-0 fw-bold">Correo Electrónico</h6>
-                                <a href="mailto:tuemail@ejemplo.com" class="text-decoration-none">tuemail@ejemplo.com</a>
-                            </div>
+                            <h3 class="h5 fw-bold mb-0">Guías de Instalación</h3>
                         </div>
-                        
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="icon-box bg-primary text-white me-3">
-                                <i class="bi bi-geo-alt"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-0 fw-bold">Ubicación</h6>
-                                <p class="mb-0">Ciudad, País</p>
-                            </div>
-                        </div>
-                        
-                        <div class="social-links mt-4">
-                            <a href="#" class="text-decoration-none me-3" aria-label="LinkedIn">
-                                <i class="bi bi-linkedin fs-4"></i>
-                            </a>
-                            <a href="#" class="text-decoration-none me-3" aria-label="GitHub">
-                                <i class="bi bi-github fs-4"></i>
-                            </a>
-                            <a href="#" class="text-decoration-none me-3" aria-label="Twitter">
-                                <i class="bi bi-twitter fs-4"></i>
-                            </a>
-                        </div>
+                        <p class="text-muted small">Sigue nuestras guías paso a paso para configurar y desplegar cualquiera de los proyectos en tu entorno local.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-2">Ver guías <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
                 </div>
                 
-                <div class="col-lg-6">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <h3 class="h5 fw-bold mb-4">Envíame un mensaje</h3>
-                            <form id="contactForm" novalidate>
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="name" required>
-                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Correo Electrónico</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                    <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="message" class="form-label">Mensaje</label>
-                                    <textarea class="form-control" id="message" rows="4" required></textarea>
-                                    <div class="invalid-feedback">Por favor ingresa tu mensaje.</div>
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
-                            </form>
+                <div class="col-md-4">
+                    <div class="documentation-section h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                                <i class="bi bi-code-square text-success fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-0">API Reference</h3>
                         </div>
+                        <p class="text-muted small">Documentación detallada de las APIs, endpoints, parámetros y ejemplos de uso para desarrolladores.</p>
+                        <a href="#" class="btn btn-sm btn-outline-success mt-2">Ver documentación <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="documentation-section h-100">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-warning bg-opacity-10 p-2 rounded me-3">
+                                <i class="bi bi-question-circle text-warning fs-4"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-0">Preguntas Frecuentes</h3>
+                        </div>
+                        <p class="text-muted small">Encuentra respuestas a las preguntas más comunes sobre el uso y desarrollo de los proyectos.</p>
+                        <a href="#" class="btn btn-sm btn-outline-warning mt-2">Ver preguntas <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonials" class="py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="h3 fw-bold mb-3">Lo que dicen mis clientes</h2>
+                    <p class="text-muted">Testimonios de clientes y colaboradores con los que he tenido el placer de trabajar</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle me-3" width="50" height="50" alt="Cliente">
+                            <div>
+                                <h5 class="mb-0">María González</h5>
+                                <small class="text-muted">CEO en Empresa XYZ</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-0">"Trabajar con Jhonatan fue una experiencia increíble. Su atención al detalle y habilidades técnicas superaron nuestras expectativas. El sitio web que desarrolló para nosotros ha aumentado significativamente nuestras conversiones."</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle me-3" width="50" height="50" alt="Cliente">
+                            <div>
+                                <h5 class="mb-0">Carlos Rodríguez</h5>
+                                <small class="text-muted">Fundador de Startup ABC</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-0">"Increíble profesional. Jhonatan no solo entendió perfectamente nuestra visión, sino que también aportó ideas innovadoras que mejoraron significativamente nuestro producto final. Sin duda lo recomiendo."</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-circle me-3" width="50" height="50" alt="Cliente">
+                            <div>
+                                <h5 class="mb-0">Ana Martínez</h5>
+                                <small class="text-muted">Directora de Marketing en TechCorp</small>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-half text-warning"></i>
+                        </div>
+                        <p class="text-muted mb-0">"La aplicación móvil que desarrolló Jhonatan para nuestra empresa ha sido un éxito entre nuestros clientes. Su capacidad para traducir requisitos complejos en soluciones prácticas es notable."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-primary">
+                    <i class="bi bi-chat-square-quote me-2"></i> Ver más testimonios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="py-5 bg-primary text-white">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h3 class="h2 fw-bold mb-2">¿Tienes un proyecto en mente?</h3>
+                    <p class="mb-0">Estoy listo para ayudarte a hacerlo realidad. Contáctame y hablemos sobre cómo puedo contribuir al éxito de tu próximo proyecto.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="contacto.html" class="btn btn-light btn-lg px-4">
+                        <i class="bi bi-chat-dots me-2"></i> Contáctame
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+    <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <h3 class="h4 fw-bold text-white">JSCM</h3>
+                    </a>
+                    <p class="text-muted mb-4">Desarrollador Full Stack apasionado por crear soluciones digitales innovadoras y experiencias de usuario excepcionales.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white text-decoration-none" data-bs-toggle="tooltip" title="GitHub">
+                            <i class="bi bi-github fs-5"></i>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none" data-bs-toggle="tooltip" title="LinkedIn">
+                            <i class="bi bi-linkedin fs-5"></i>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none" data-bs-toggle="tooltip" title="Twitter">
+                            <i class="bi bi-twitter-x fs-5"></i>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none" data-bs-toggle="tooltip" title="Instagram">
+                            <i class="bi bi-instagram fs-5"></i>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none" data-bs-toggle="tooltip" title="Dribbble">
+                            <i class="bi bi-dribbble fs-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-3 col-lg-2 mb-4 mb-md-0">
+                    <h5 class="h6 fw-bold mb-3">Navegación</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-muted text-decoration-none hover-text-white">Inicio</a></li>
+
+                    </ul>
+                </div>
+                
+                <div class="col-6 col-md-3 col-lg-2 mb-4 mb-md-0">
+                    <h5 class="h6 fw-bold mb-3">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Desarrollo Web</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Aplicaciones Móviles</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Diseño UI/UX</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-text-white">Consultoría</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none hover-text-white">Mantenimiento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <h5 class="h6 fw-bold mb-3">Contacto</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2">
+                            <i class="bi bi-envelope me-2"></i> 
+                            <a href="mailto:jhonatan@ejemplo.com" class="text-muted text-decoration-none hover-text-white">jhonatan@ejemplo.com</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-telephone me-2"></i> 
+                            <a href="tel:+541112345678" class="text-muted text-decoration-none hover-text-white">+54 11 1234-5678</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-geo-alt me-2"></i> Buenos Aires, Argentina
+                        </li>
+                        <li class="mt-4">
+                            <a href="#" class="btn btn-outline-light btn-sm">
+                                <i class="bi bi-download me-1"></i> Descargar CV
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4 border-secondary">
+            
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="mb-0">© <span id="currentYear"></span> [Tu Nombre]. Todos los derechos reservados.</p>
+                    <p class="mb-0 small text-muted">&copy; 2024 Jhonatan Steven Cabrera Montoya. Todos los derechos reservados.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <a href="#inicio" class="text-white text-decoration-none back-to-top">
-                        <i class="bi bi-arrow-up-circle-fill fs-4"></i>
-                    </a>
+                    <p class="mb-0 small text-muted">
+                        Diseñado y desarrollado con <i class="bi bi-heart-fill text-danger"></i> por Jhonatan Steven
+                    </p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="btn btn-primary rounded-circle shadow" title="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
     <script>
         // Año actual en el footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('current-year').textContent = new Date().getFullYear();
         
-        // Validación de formulario
-        (function() {
-            'use strict';
-            var forms = document.querySelectorAll('.needs-validation');
-            Array.from(forms).forEach(function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
+        // Botón de volver arriba
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Filtrado de proyectos
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        const projectItems = document.querySelectorAll('.project-item');
+        const loadMoreBtn = document.getElementById('load-more');
+        let visibleItems = 6; // Número inicial de proyectos visibles
+        const itemsPerLoad = 3; // Número de proyectos a cargar al hacer clic en "Cargar más"
+
+        // Función para filtrar proyectos
+        function filterProjects(category) {
+            let count = 0;
+            
+            projectItems.forEach((item, index) => {
+                const itemCategory = item.getAttribute('data-category');
+                const shouldShow = category === 'all' || itemCategory === category;
+                
+                if (shouldShow) {
+                    item.style.display = 'block';
+                    // Mostrar solo los primeros 'visibleItems' proyectos
+                    if (count >= visibleItems) {
+                        item.style.display = 'none';
                     }
-                    form.classList.add('was-validated');
-                }, false);
+                    count++;
+                } else {
+                    item.style.display = 'none';
+                }
             });
-        })();
-        
-        // Scroll suave
+
+            // Mostrar u ocultar el botón "Cargar más" según sea necesario
+            const totalVisible = document.querySelectorAll(`.project-item[data-category="${category}"`).length;
+            loadMoreBtn.style.display = (category !== 'all' && totalVisible <= visibleItems) || 
+                                      (category === 'all' && projectItems.length <= visibleItems) ? 'none' : 'inline-flex';
+        }
+
+        // Event listeners para los botones de filtro
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remover la clase active de todos los botones
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Agregar la clase active al botón clickeado
+                button.classList.add('active');
+                // Filtrar proyectos
+                const filterValue = button.getAttribute('data-filter');
+                filterProjects(filterValue);
+            });
+        });
+
+        // Cargar más proyectos
+        loadMoreBtn.addEventListener('click', () => {
+            visibleItems += itemsPerLoad;
+            const activeFilter = document.querySelector('[data-filter].active').getAttribute('data-filter');
+            filterProjects(activeFilter);
+        });
+
+        // Inicializar mostrando los primeros proyectos
+        document.addEventListener('DOMContentLoaded', () => {
+            filterProjects('all');
+            
+            // Efecto de carga suave al cargar la página
+            document.body.classList.add('loaded');
+            
+            // Inicializar tooltips de Bootstrap
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+
+        // Efecto de scroll suave para los enlaces internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
                     });
                 }
             });
-        });
-        
-        // Navbar con scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scrolled');
-            } else {
-                navbar.classList.remove('navbar-scrolled');
-            }
         });
     </script>
 </body>
